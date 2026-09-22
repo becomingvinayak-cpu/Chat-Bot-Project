@@ -12,10 +12,15 @@ if not api_key:
 
 client = genai.Client(api_key=api_key)
 
-def ask_gemini(question):
+def ask_gemini(history):
+    conversation_text = ""
+
+    for message in history:
+        conversation_text +=f"{message['role']}:{message['content']}\n"
+
     response = client.models.generate_content(
         model = "gemini-3.6-flash",
-        contents = question
+        contents = conversation_text
     )
 
     return response.text
