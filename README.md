@@ -15,6 +15,7 @@ The backend currently includes:
 - HTTP communication
 - FastAPI backend
 - '/chat' endpoint
+- Conversation memory
 
 The frontend and additional functionality are still under development.
 
@@ -59,6 +60,10 @@ Introduced FastAPI to turn the backend logic into an API.
 ### Stage 6 - '/chat' Endpoint
 
 Built the '/chat' endpoint for receiving a user message and returning an AI-generated response.
+
+### Stage 7 - Conversation Memory
+
+Learned how to build a temporary memory for the communication between the terminal and Gemini.
 
 ## What I Am Learning ?
 
@@ -118,7 +123,6 @@ I wasn't able to run code in the virtual environment.
 VS code wasn't able to use variables from my '.env' file.
 
 **Solution:**
-
 Run: python.terminal.useEnvFile
 
 Then: python-dotenv
@@ -172,9 +176,42 @@ A frontend sends a POST request containing JSON to '/chat'. FastAPI validates th
 
 The backend returns the result using ChatResponse structure. If something unexpected happens during the Gemini call, the exception is converted into an HTTP 500 error.
 
+### Topic 5 - 
+
+**Lesson 1:**
+Temporary Python memory can store conversation data while the server is running, but it disappears when the program stops.
+
+**Lesson 2:**
+The database stores the history; the backend retrieves the relevant history and provides it to Gemini as context.
+
+**Lesson 3:**
+'conversation_id' connects messages to a conversation, 'role' identifies 'user' or 'assistant'.
+
+**Lesson 4:**
+Dictionary stores conversations temporarily in server memory.
+
+- Python Interpreter/Path Issue
+
+**Problem:**
+The program was unable to found the interpreter.
+
+**Error:**
+Python wasn't found; run without arguments to install from the Microsoft Store...
+
+**Cause:**
+I didn't assigned the program a certain path to get interpreted.
+
+**Solution:**
+Go to Python Interpreter in VS Code.
+
+Then: Select '.env', inside it select FastAPI.
+
+
+**Lesson:**
+Always make sure your program has a path to be interpreted.
+
 ## Future Plans
 
-- Build conversation memory
 - Build the frontend
 - Connect the frontend with the backend
 - Build backend security
