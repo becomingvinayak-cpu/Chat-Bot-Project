@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport"
+        content = "width = device-width,
+        initial - scale = 1.0">
+
+        <title>Logia AI</title>
+
+        <link rel = "stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+        <div class = "app">
+
+            <!-- Navigation -->
+
+            <header class = "navbar">
+
+                <div class = "brand">
+                    <div class = "brand-mark">
+                        ☘︎
+                    </div>
+
+                    <span>Logia AI</span>
+        </div>
+
+        <button id = "themeToggle"
+        class = "theme-button" aria-label="Toggle theme">
+                  𒆙 
+        </button>
+
+    </header>
+
+            <!-- Main -->
+
+            <main class = "main">
+
+                <!-- Welcome -->
+                 <section id = "welcomeScreen"
+            class = "welcome">
+            
+            <div class = "glow-orb">
+                <div class = "orb-core"></div>
+            </div>
+
+            <p class = "eyebrow">
+                YOUR AI ASSISTANT
+            </p>
+
+            <h1>
+                Ask anything.<br>
+                <span>Think clearly.</span>
+
+            </h1>
+
+            <p class = "subtitle">
+                A simple AI workspace for questions, ideas, explanations and everyday thinking.
+            </p>
+
+            <div class = "quick-prompts">
+
+                <button class = "prompt-card">
+                    <span>Explain something</span>
+                    <small>Teach me a concept simply</small>
+                </button>
+
+                <button class = "prompt-card">
+                    <span>Help me learn</span>
+                    <small>Create a study plan</small>
+                </button>
+
+                <button class = "prompt-card">
+                    <span>Brainstorm ideas</span>
+                    <small>Explore possibilities</small>
+                </button>
+            </div>
+                                 
+                </section>
+
+                <!-- Chat -->
+                 <section id = "chatSection"
+                 class = "chat-section">
+                
+                   <div id = "messages"
+                 class = "messages"></div>
+
+                   <!-- Thinking indicator -->
+
+                   <div id = "thinking"
+                 class = "thinking hidden">
+                
+                        <div class = "thinking-glow"></div>
+
+                        <div class = "thinking-bubble">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <p>Thinking</p>
+
+                    </div>
+                
+                </section>
+
+                <!-- Input -->
+
+                <section class = "composer-wrapper">
+
+                    <form id = "chatForm"
+                    class = "composer">
+                
+                          <textarea id = "messageInput
+                                    placeholder = "Ask anything..."
+                                    rows = "1"
+                                    required></textarea>
+                                
+                                <button id = "sendButton"
+                            class = "send-button" type = "submit">
+                        </button>
+                    </form>
+
+                    <p class = "composer-note">
+                        Logia AI can make mistakes. Check important information.
+                    </p>
+
+                </section>
+
+            </main>
+
+        </div>
+
+        <script src = "script.js"></script>
+        
+</body>
+</html>
