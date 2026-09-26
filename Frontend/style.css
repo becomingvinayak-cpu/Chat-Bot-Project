@@ -525,8 +525,6 @@ textarea::placeholder {
 
     font-size: 12px;
     opacity: 0.55;
-
-    color: var(--text-color);
 }
 
 /* When user has typed something */
