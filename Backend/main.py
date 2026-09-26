@@ -1,11 +1,24 @@
+
 from fastapi import FastAPI
 from fastapi import FastAPI, HTTPException
 from ai import ask_gemini
 from pydantic import BaseModel, Field
+from fastapi.middleware.cors import CORSMiddleware
 
 Conversations = {}
 
 app = FastAPI()
+
+app.add_middleware(
+     CORSMiddleware,
+     allow_origins=[
+          "http://127.0.0.1:5500",
+          "http://localhost:5500"
+     ],
+     allow_credentials=True,
+     allow_methods=["*"],
+     allow_headers=["*"],
+)
 
 class ChatRequest(BaseModel):
     conversation_id: str
@@ -36,6 +49,11 @@ def chat(request: ChatRequest):
             Conversations[request.conversation_id].append({
                  "role": "assistant",
                  "content": answer})
+
+            return {
+                 "response": answer,
+                 "status": "success"
+            }
             
     except Exception as e:
          print("Gemini Error:", e)

@@ -1,4 +1,6 @@
+
 import os
+import time
 
 from dotenv import load_dotenv
 from google import genai
@@ -16,11 +18,23 @@ def ask_gemini(history):
     conversation_text = ""
 
     for message in history:
-        conversation_text +=f"{message['role']}:{message['content']}\n"
+        conversation_text += (f"{message['role']}:{message['content']}\n"
+        )
 
-    response = client.models.generate_content(
-        model = "gemini-3.6-flash",
-        contents = conversation_text
-    )
+    max_retries = 3
 
-    return response.text
+    for attempt in range(max_retries):
+        try:
+
+            response = client.models.generate_content(
+                model = 'gemini-3.6-flash',
+                contents=conversation_text
+            )
+            return response.text
+
+        except Exception as e:
+            print(f"Error on attempt {attempt + 1}: {e}")
+            if attempt < max_retries - 1:
+                time.sleep(2 ** attempt)
+            else:
+                raise e
