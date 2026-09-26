@@ -107,6 +107,24 @@ function setThinking(isThinking) {
     );
 
     sendButton.disabled = isThinking;
+
+    if (isThinking) {
+
+        sendButton.classList.remove("active");
+
+        sendButton.classList.add("thinking");
+    } else {
+
+        sendButton.classList.remove("thinking");
+
+        if (messageInput.value.trim()) {
+
+            sendButton.classList.add("active");
+        } else {
+
+            sendButton.classList.remove("active")
+        }
+    }
 }
 
 /* -------------- Send Message -------------- */
@@ -230,6 +248,16 @@ messageInput.addEventListener("input", () => {
 
     messageInput.style.height = 
         '$ {Math.min(messageInput.scrollHeight, 150)}px';
+
+        if (messageInput.value.trim()) {
+            sendButton.disabled = false;
+
+            sendButton.classList.add("active");
+        } else {
+            sendButton.disabled = true;
+
+            sendButton.classList.remove("active");
+        }
 });
 
 /* -------------- Quick Prompts -------------- */
