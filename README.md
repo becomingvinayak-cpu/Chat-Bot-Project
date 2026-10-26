@@ -212,8 +212,6 @@ Always make sure your program has a path to be interpreted.
 
 ## Future Plans
 
-- Build the frontend
-- Connect the frontend with the backend
 - Build backend security
 - Work on database
 - Testing
