@@ -58,6 +58,18 @@ Use the previous conversation only
 when it is relevant.
 Do not treat the previous message as
 the current question.
+
+RESPONSE FORMATTING RULES:
+- Use Markdown for structured answers.
+- Use paragraphs for explanations.
+- Use numbered lists for ordered points.
+- Use bullet points for unordered points.
+- Use headings only when necessary.
+- Use bold text for important terms.
+- Use code blocks for programming examples.
+- Separate paragraphs and list sections with blank lines.
+- Never write malformed headings or list markers.
+- Keep simple answers concise.
 """
 
     max_retries = 3

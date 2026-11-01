@@ -85,8 +85,16 @@ document.createElement("div");
     messageContent.className =
         "message-content";
 
-    messageContent.textContent = content;
+        if (role === "assistant") {
 
+            const html = marked.parse(content);
+
+            messageContent.innerHTML = DOMPurify.sanitize(html);
+        } else {
+            messageContent.textContent = content;
+
+        }
+        
 message.appendChild(messageContent);
 
     messages.appendChild(message);
