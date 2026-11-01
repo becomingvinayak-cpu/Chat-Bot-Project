@@ -16,6 +16,7 @@ The backend currently includes:
 - FastAPI backend
 - '/chat' endpoint
 - Conversation memory
+- Proper connection between the frontend and the backend.
 
 The frontend and additional functionality are still under development.
 
@@ -64,6 +65,10 @@ Built the '/chat' endpoint for receiving a user message and returning an AI-gene
 ### Stage 7 - Conversation Memory
 
 Learned how to build a temporary memory for the communication between the terminal and Gemini.
+
+### Stage 8 - Frontend Connection
+
+Conected Frontend to the backend and made the formatting clear.
 
 ## What I Am Learning ?
 
@@ -176,7 +181,7 @@ A frontend sends a POST request containing JSON to '/chat'. FastAPI validates th
 
 The backend returns the result using ChatResponse structure. If something unexpected happens during the Gemini call, the exception is converted into an HTTP 500 error.
 
-### Topic 5 - 
+### Topic 5 - Conversation memory
 
 **Lesson 1:**
 Temporary Python memory can store conversation data while the server is running, but it disappears when the program stops.
