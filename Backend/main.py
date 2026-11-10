@@ -58,7 +58,16 @@ def chat(request: ChatRequest):
     print("CURRENT HISTORY:", history)
 
     # Send updated history to Gemini
-    answer = ask_gemini(history)
+    try:
+     answer = ask_gemini(history)
+
+    except Exception as e:
+        print("Gemini Server Error:", e)
+
+        raise HTTPException(
+            status_code = 502,
+            detail = "AI service is temporarily unavailable. Please try again."
+        )
 
     # Store Gemini's response
     Conversations[request.conversation_id].append({
