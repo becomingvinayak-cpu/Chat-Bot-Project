@@ -64,16 +64,25 @@ def chat(request: ChatRequest):
     except Exception as e:
         print("Gemini Server Error:", e)
 
+    # Remove the unanswered user message
+        history.pop()
+
         raise HTTPException(
             status_code = 502,
             detail = "AI service is temporarily unavailable. Please try again."
         )
+
 
     # Store Gemini's response
     Conversations[request.conversation_id].append({
         "role": "assistant",
         "content": answer
     })
+
+    # Limit the conversation history to the last 20 messages
+
+    if len(Conversations[request.conversation_id]) > 20:
+        Conversations[request.conversation_id] = Conversations[request.conversation_id][-20:]
 
     # Return response to frontend
     return {
