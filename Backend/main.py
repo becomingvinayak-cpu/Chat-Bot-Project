@@ -2,7 +2,7 @@
 from fastapi import FastAPI
 from fastapi import FastAPI, HTTPException
 from ai import ask_gemini
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 from fastapi.middleware.cors import CORSMiddleware
 
 Conversations = {}
@@ -24,6 +24,16 @@ class ChatRequest(BaseModel):
     conversation_id: str = Field(min_length = 1)
     message: str = Field(min_length=2, max_length = 2000)
     username: str = Field(min_length = 1, max_length = 50)
+
+    @field_validator("message")
+    @classmethod
+    def validate_message(cls, value):
+        value = value.strip()
+
+        if not value:
+            raise ValueError("Message can't be empty or whitespace only.")
+
+        return value
 
 class ChatResponse(BaseModel):
     response: str
