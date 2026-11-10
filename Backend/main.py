@@ -21,9 +21,9 @@ app.add_middleware(
 )
 
 class ChatRequest(BaseModel):
-    conversation_id: str
-    message: str = Field(min_length=3)
-    username: str
+    conversation_id: str = Field(min_length = 1)
+    message: str = Field(min_length=2, max_length = 2000)
+    username: str = Field(min_length = 1, max_length = 50)
 
 class ChatResponse(BaseModel):
     response: str
