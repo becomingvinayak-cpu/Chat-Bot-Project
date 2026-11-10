@@ -17,6 +17,7 @@ The backend currently includes:
 - '/chat' endpoint
 - Conversation memory
 - Proper connection between the frontend and the backend.
+- Validation + Error Handling
 
 The frontend and additional functionality are still under development.
 
@@ -69,6 +70,11 @@ Learned how to build a temporary memory for the communication between the termin
 ### Stage 8 - Frontend Connection
 
 Conected Frontend to the backend and made the formatting clear.
+
+### Stage 9 - Validation + Error Handling
+
+Now it can validate the incoming message from the API instead of directly showing the error to the frontend. It also has conversation history
+limit till 20, later it'll be changed depending on the situation.
 
 ## What I Am Learning ?
 
@@ -211,9 +217,13 @@ Go to Python Interpreter in VS Code.
 
 Then: Select '.env', inside it select FastAPI.
 
-
 **Lesson:**
 Always make sure your program has a path to be interpreted.
+
+### Topic 6 - Validation + Error Handling
+
+**Lesson:**
+500 is used when our own server has an error. For external server error use 502.
 
 ## Future Plans
 
@@ -223,7 +233,7 @@ Always make sure your program has a path to be interpreted.
 - Deployment
 - Improve the chatbot experience
 - Add additional functionality
-- Immprove project structure and documentation
+- Improve project structure and documentation
 - Continue documenting the development process
 
 ## Project Status
